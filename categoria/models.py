@@ -2,3 +2,7 @@ from django.db import models
 
 class Categoria(models.Model):
     categoria_nome = models.CharField(max_length=80, unique=True)
+    slug = models.SlugField(max_length=100, unique=True)
+    descricao = models.CharField(max_length=250, blank=True)
+    categoria_imagem = models.ImageField(upload_to='fotos/categorias', blank=True)
+    
