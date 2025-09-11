@@ -6,3 +6,6 @@ class Categoria(models.Model):
     descricao = models.CharField(max_length=250, blank=True)
     categoria_imagem = models.ImageField(upload_to='fotos/categorias', blank=True)
     
+    def __str__(self):
+        return self.categoria_nome
+    
