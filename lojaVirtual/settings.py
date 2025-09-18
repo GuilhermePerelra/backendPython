@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'categoria',
     'produto',
+    'vitrine',
 ]
 
 MIDDLEWARE = [
@@ -121,8 +122,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR/'static'
 STATICFILES_DIRS = ['lojaVirtual/static']
-MEDIA_URL = '/fotos/'
-MEDIA_ROOT = BASE_DIR /''
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR /"media"
 
 
 # Default primary key field type

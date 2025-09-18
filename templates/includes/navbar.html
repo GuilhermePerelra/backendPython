@@ -78,8 +78,10 @@ $(document).ready(function() {
 				<i class="fa fa-bars"></i> All category 
 			</button>
 			<div class="dropdown-menu">
+				<a class="dropdown-item" href="{% url 'vitrine' %}">Todas as Categorias</a> 
+				
 				{% for categoria in cats %}
-				<a class="dropdown-item" href="#">{{categoria.categoria_nome}}</a> 
+					<a class="dropdown-item" href="{{ categoria.get_url }}">{{categoria.categoria_nome}}</a> 
 				{% endfor %}
 			</div>
 		</div>  <!-- category-wrap.// -->
