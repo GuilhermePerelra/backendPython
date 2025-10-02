@@ -19,3 +19,6 @@ def visualizarVitrine(request, categoria_slug=None):
   }
   
   return render(request, 'index.html', contexto)
+
+def visualizarCarrinho(request): 
+    return render(request, 'loja/carrinho')
