@@ -26,7 +26,7 @@
 		{% for prods in produtos %}
 	<div class="col-md-3">
 		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> 
+			<a href="{{prods.get_url}}" class="img-wrap"> 
 				<img src="{{ prods.imagem.url }}"> 
 			</a>
 			<figcaption class="info-wrap">
