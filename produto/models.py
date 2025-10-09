@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from autoslug import AutoSlugField
 from categoria.models import Categoria
 
 # Create your models here.
@@ -11,7 +11,7 @@ class Produto(models.Model):
     preco = models.DecimalField(decimal_places=2, max_digits=11)
     estoque = models.IntegerField()
     imagem = models.ImageField(upload_to="fotos/produtos")
-    slug = models.SlugField(max_length=250, unique=True)
+    slug = AutoSlugField(populate_from='produto_nome', editable=True, unique=True, always_update=True)
     esta_disponivel = models.BooleanField(default=True)
     criado_em = models.DateTimeField(auto_now_add=True)
     modificado_em = models.DateTimeField(auto_now=True)
