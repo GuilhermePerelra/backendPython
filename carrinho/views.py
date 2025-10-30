@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from carrinho.models import CarItem, Carrinho
 from produto.models import Produto
@@ -56,4 +56,23 @@ def adicionarItemCarrinho(request, produto_id):
             quantidade = 1,
         )    
         car_item.save()
+    return redirect('carrinho')
+
+def diminuirQuantidadeProduto(request, produto_id):
+    carrinho = Carrinho.objects.get(car_id = _getCarId(request))
+    produto = get_object_or_404(Produto, id=produto_id)
+    car_item = CarItem.objects.get(produto=produto, car = carrinho)
+    print(car_item.quantidade)
+    if car_item.quantidade > 1:
+        car_item.quantidade -= 1
+        car_item.save()
+    else:
+        car_item.delete()
+    return redirect('carrinho')
+
+def removerItemCarrinho(request, produto_id):
+    car = Carrinho.objects.get(car_id =  _getCarId(request))
+    produto = get_object_or_404(Produto, id=produto_id)
+    car_item = CarItem.objects.get(produto = produto, car=car)
+    car_item.delete()
     return redirect('carrinho')

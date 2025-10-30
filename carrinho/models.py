@@ -8,6 +8,8 @@ class Carrinho(models.Model):
     
     def __str__(self):
         return self.car_id
+    
+    
 
 class CarItem(models.Model):
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
@@ -17,3 +19,6 @@ class CarItem(models.Model):
     
     def __str__(self):
         return self.produto
+    
+    def sub_total(self):
+        return self.produto.preco * self.quantidade
